@@ -1,12 +1,14 @@
-CutePets
-========
+SLCPitBulls
+===========
 
-Post a random adoptable pet from a shelter to a twitter feed
+Post a random adoptable pit bull terrier near SLC to a twitter feed
 -------------------------------------------------------------------
 
 Based off of Code for America's [CutePetsDenver](https://github.com/codeforamerica/cutepetsdenver) made by Team Denver.
 
-Example twitter feed: [http://www.twitter.com/ericapets](http://www.twitter.com/ericapets)
+Example twitter feed: [http://www.twitter.com/SLCPitBulls](http://www.twitter.com/SLCPitBulls)
+
+This was the product of a very short hacking session, and so I've hard coded the breed and location. :-(
 
 ## Set Up for Local Development
 
@@ -37,7 +39,7 @@ Edit a the local .env file by adding the appropriate config values. How to get T
     2. `heroku config:set api_secret="your_consumer_secret_key_goes_here"`
     3. `heroku config:set access_token="your_access_token_goes_here"`
     4. `heroku config:set access_token_secret="your_access_token_secret_goes_here"`
-5. Configure pet datasource–you have two options (below). Search on Petfinder for your shelter and use that if you find it, otherwise look on PetHarbor. 
+5. Configure pet datasource–you have two options (below). Search on Petfinder for your shelter and use that if you find it, otherwise look on PetHarbor.
     1. **Petfinder**
         1. Register for an account at [petfinder.com](https://www.petfinder.com/) and then get your [API key](https://www.petfinder.com/developers/api-key). To find the shelter id, find a shelter's page on petfinder.com. The id is the last two letters followed by three numbers in the shelter page url. i.e. For this shelter page, [http://www.petfinder.com/shelters/CA154.html](http://www.petfinder.com/shelters/CA154.html), the shelter id is CA154.
         2. Add Petfinder environment variables.
@@ -51,7 +53,7 @@ Edit a the local .env file by adding the appropriate config values. How to get T
             1. `heroku config:set petharbor_shelter_id="shelter_id_goes_here"`
             2. `heroku config:set petharbor_pet_types="cat dog others"`
             3. `heroku config:set pet_datasource="petharbor"`
-6. Schedule tweets 
+6. Schedule tweets
     1. Add the **Heroku Scheduler** add on: `heroku addons:add scheduler`
     2. Schedule tweets: `heroku addons:open scheduler`
     3. In the task field: `rake tweet_pet`.
