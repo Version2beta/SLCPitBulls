@@ -13,7 +13,8 @@ module PetFetcher
     params = {
       format:    'json',
       key:        ENV.fetch('petfinder_key'),
-      shelterid:  get_petfinder_shelter_id,
+      location:  'Salt Lake City, UT',
+      breed:     'Pit Bull Terrier',
       output:    'full'
     }
     uri.query = URI.encode_www_form(params)
