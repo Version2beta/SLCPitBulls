@@ -25,7 +25,7 @@ module PetFetcher
 
     if response.kind_of? Net::HTTPSuccess
       json = JSON.parse(response.body)
-      pet_json  = json['petfinder']['pets'].to_a.sample.to_h
+      pet_json  = json['petfinder']['pets']['pet'].to_a.sample.to_h
       {
         pic:   get_photo(pet_json),
         link:  "https://www.petfinder.com/petdetail/#{pet_json['id']['$t']}",
