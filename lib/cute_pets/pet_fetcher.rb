@@ -17,7 +17,7 @@ module PetFetcher
       #distance:  '50',
       #shelterid: 'UT28',
       breed:     'Pit Bull Terrier',
-      count:     '50',
+      count:     '100',
       output:    'full'
     }
     uri.query = URI.encode_www_form(params)
