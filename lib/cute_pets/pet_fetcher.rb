@@ -13,9 +13,9 @@ module PetFetcher
     params = {
       format:    'json',
       key:        ENV.fetch('petfinder_key'),
-      location:  'salt lake city ut',
-      distance:  '50',
-      #shelterid: 'UT77',
+      #location:  'salt lake city ut',
+      #distance:  '50',
+      shelterid: 'UT28',
       breed:     'Pit Bull Terrier',
       output:    'full'
     }
