@@ -9,14 +9,15 @@ module PetFetcher
   extend self
 
   def get_petfinder_pet()
-    uri = URI('http://api.petfinder.com/pet.getRandom')
+    uri = URI('http://api.petfinder.com/pet.find')
     params = {
       format:    'json',
       key:        ENV.fetch('petfinder_key'),
-      #location:  'salt lake city ut',
+      location:  'salt lake city ut',
       #distance:  '50',
-      shelterid: 'UT28',
+      #shelterid: 'UT28',
       breed:     'Pit Bull Terrier',
+      count:     '50',
       output:    'full'
     }
     uri.query = URI.encode_www_form(params)
@@ -24,7 +25,7 @@ module PetFetcher
 
     if response.kind_of? Net::HTTPSuccess
       json = JSON.parse(response.body)
-      pet_json  = json['petfinder']['pet']
+      pet_json  = json['petfinder']['pets'].sample
       {
         pic:   get_photo(pet_json),
         link:  "https://www.petfinder.com/petdetail/#{pet_json['id']['$t']}",
